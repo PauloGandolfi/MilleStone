@@ -20,21 +20,23 @@ The project is currently in its initial product definition and technical foundat
 
 ### Current Milestone
 
-**M0 — Web Foundation**
+**Phase 1 — Spring Boot Foundation**
 
 Main objective:
 
 ```text
-Create transaction
-        ↓
+Browser
+   ↓
+Frontend
+   ↓
 REST API
-        ↓
-Persist transaction
-        ↓
-Update dashboard
+   ↓
+Spring Boot
+   ↓
+PostgreSQL
 ```
 
-The first milestone should establish a complete vertical slice between frontend, backend, and database.
+Establish a clean, minimal, and extensible Spring Boot backend foundation.
 
 ---
 
@@ -1164,6 +1166,35 @@ localhost:5432
 ```
 
 Exact ports may change according to the project configuration.
+
+### Running the Backend
+
+To start the Spring Boot backend application:
+
+```bash
+cd backend
+./mvnw spring-boot:run
+```
+
+Health check verification:
+
+```bash
+curl http://localhost:8080/actuator/health
+```
+
+### Running Tests
+
+```bash
+cd backend
+./mvnw test
+```
+
+### Building the Package
+
+```bash
+cd backend
+./mvnw package
+```
 
 ---
 
