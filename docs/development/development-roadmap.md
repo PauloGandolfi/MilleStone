@@ -70,13 +70,13 @@ Establish the repository directory layout, Git hygiene, project documentation st
 
 ### Checklist
 
-- [ ] **Git Repository Verification**
-  - [ ] Initialize/verify Git repository root.
-  - [ ] Configure `.gitignore` covering Java/Maven (`target/`, `.mvn/wrapper/maven-wrapper.jar`), Node/Frontend (`node_modules/`, `dist/`), IDE files (`.idea/`, `.vscode/`, `*.iml`), OS artifacts (`.DS_Store`), and environment files (`.env`, `.env.local`).
-  - [ ] Establish standard Git branch strategy (`main` for production-ready code, feature branches `feat/*`, `fix/*`, `chore/*`).
+- [x] **Git Repository Verification**
+  - [x] Initialize/verify Git repository root.
+  - [x] Configure `.gitignore` covering Java/Maven (`target/`, `.mvn/wrapper/maven-wrapper.jar`), Node/Frontend (`node_modules/`, `dist/`), IDE files (`.idea/`, `.vscode/`, `*.iml`), OS artifacts (`.DS_Store`), and environment files (`.env`, `.env.local`).
+  - [x] Establish standard Git branch strategy (`main` for production-ready code, feature branches `feat/*`, `fix/*`, `chore/*`).
 
-- [ ] **Directory Layout Setup**
-  - [ ] Create repository folder structure:
+- [x] **Directory Layout Setup**
+  - [x] Create repository folder structure:
     ```text
     milestone/
     ├── backend/
@@ -91,19 +91,19 @@ Establish the repository directory layout, Git hygiene, project documentation st
     └── docker-compose.yml (local development dependencies)
     ```
 
-- [ ] **Documentation Foundation**
-  - [ ] Maintain `README.md` aligned with the web-first scope and architecture.
-  - [ ] Create `docs/architecture/decisions/` for Architecture Decision Records (ADRs).
-  - [ ] Place this roadmap at `docs/development/development-roadmap.md`.
+- [x] **Documentation Foundation**
+  - [x] Maintain `README.md` aligned with the web-first scope and architecture.
+  - [x] Create `docs/architecture/decisions/` for Architecture Decision Records (ADRs).
+  - [x] Place this roadmap at `docs/development/development-roadmap.md`.
 
-- [ ] **Development Environment Prerequisites**
-  - [ ] Verify JDK 21+ installation (`java -version`).
-  - [ ] Verify Node.js (LTS version) and npm installation (`node -v`, `npm -v`).
-  - [ ] Verify Docker and Docker Compose installation for local services (`docker compose version`).
+- [x] **Development Environment Prerequisites**
+  - [x] Verify JDK 21+ installation (`java -version`).
+  - [x] Verify Node.js (LTS version) and npm installation (`node -v`, `npm -v`).
+  - [x] Verify Docker and Docker Compose installation for local services (`docker compose version`).
 
 ### Validation
-- [ ] Run `git status` — ensure working tree is clean and untracked files match `.gitignore` rules.
-- [ ] Directory layout matches the modular monolith specification.
+- [x] Run `git status` — ensure working tree is clean and untracked files match `.gitignore` rules.
+- [x] Directory layout matches the modular monolith specification.
 
 ### Done When
 The repository contains a clean directory structure with `.gitignore`, initial documentation, and development environment prerequisites verified across team machines.
