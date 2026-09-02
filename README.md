@@ -214,7 +214,8 @@ Planned indicators:
 * expenses by category;
 * upcoming expenses;
 * recent transactions;
-* financial goal progress.
+* financial goal progress;
+* primary missions.
 
 The dashboard should answer the most important financial questions without requiring the user to navigate through multiple screens.
 
@@ -845,6 +846,7 @@ Dashboard
 * [ ] Expenses by category
 * [ ] Recent transaction history
 * [ ] Projected balance
+* [ ] Primary missions
 * [ ] Dashboard API
 * [ ] Dashboard interface
 
