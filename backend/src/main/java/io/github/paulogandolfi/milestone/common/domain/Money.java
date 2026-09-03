@@ -24,12 +24,11 @@ public record Money(BigDecimal amount, Currency currency) implements Comparable<
         if (currency == null) {
             throw invalid("Money currency must not be null");
         }
-
-        amount = amount.setScale(SCALE, ROUNDING_MODE);
-
         if (amount.signum() < 0) {
             throw invalid("Money amount must not be negative");
         }
+
+        amount = amount.setScale(SCALE, ROUNDING_MODE);
     }
 
     public static Money zero() {
