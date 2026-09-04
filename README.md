@@ -1,10 +1,12 @@
 # MilleStone
 
-Web application for **personal finance management**, built with a focus on simplicity, privacy, maintainability, and incremental evolution.
+MilleStone is a **personal finance management application** focused on simplicity, privacy, maintainability, and incremental evolution.
 
-The goal of MilleStone is to help users understand and manage their financial life by tracking income, expenses, recurring costs, budgets, and financial goals through a simple and intuitive interface.
+The project is being built as a **native Android application** backed by a dedicated **Java / Spring Boot API** and **PostgreSQL** database.
 
-MilleStone starts as a web application, with a backend built in **Java** and a frontend built with **React and TypeScript**.
+The goal is simple:
+
+> Make personal finance easier to understand and manage without turning financial tracking into another daily burden.
 
 ---
 
@@ -12,62 +14,61 @@ MilleStone starts as a web application, with a backend built in **Java** and a f
 
 > 🚧 **Under development**
 
-The project is currently in its initial product definition and technical foundation phase.
-
 ### Current Version
 
 `0.1.0-SNAPSHOT`
 
-### Current Milestone
+### Current Direction
 
-**Phase 1 — Spring Boot Foundation**
+MilleStone is now a **mobile-first Android project**.
 
-Main objective:
+The first technical phases established the backend, database, and domain foundations. Starting with **Phase 4**, development moves to the native Android client.
 
 ```text
-Browser
-   ↓
-Frontend
-   ↓
-REST API
-   ↓
-Spring Boot
-   ↓
+Android App
+Kotlin + Jetpack Compose
+        │
+        │ HTTP / JSON
+        ▼
+Backend API
+Java + Spring Boot
+        │
+        ▼
 PostgreSQL
 ```
 
-Establish a clean, minimal, and extensible Spring Boot backend foundation.
+The previous React/Vite frontend direction is no longer the target architecture.
 
 ---
 
 # 🎯 Purpose
 
-MilleStone was created with a simple idea:
+MilleStone should help users quickly understand their financial situation and answer questions such as:
 
-> Make personal finance easier to understand without turning financial tracking into another daily burden.
+- How much did I earn this month?
+- How much have I spent?
+- How much money is currently available?
+- What are my biggest expenses?
+- How much do I still have in upcoming expenses?
+- Am I staying within my budget?
+- How are my financial goals progressing?
 
-The application should quickly help users answer questions such as:
+The product should prioritize **clarity and usefulness over unnecessary complexity**.
 
-* How much did I earn this month?
-* How much have I spent?
-* How much money do I currently have available?
-* What are my biggest expenses?
-* How much do I still have in upcoming expenses?
-* Am I staying within my budget?
-* How are my financial goals progressing?
-
-The product should prioritize clarity and usefulness over unnecessary complexity.
+The mobile experience is especially important because financial transactions happen throughout the day. Recording an expense should be fast enough to do immediately after a purchase instead of becoming a task the user postpones.
 
 ---
 
-# 🚀 MVP
+# 🚀 Product Vision
 
-The first version of MilleStone will focus on the essential personal finance workflow.
+The first usable version of MilleStone will focus on the essential personal finance workflow:
 
 ```text
 Income
    +
 Expenses
+   ↓
+Transactions
    ↓
 Financial Overview
    ↓
@@ -78,20 +79,20 @@ Goals
 
 The initial objective is not to create a complete banking platform.
 
-The objective is to create a reliable personal finance application that can evolve incrementally.
+The objective is to create a reliable personal finance application that works well for everyday use and can evolve incrementally.
 
 ---
 
-## 💰 Income
+# 💰 Income
 
 Users will be able to register financial income such as:
 
-* salary;
-* payments;
-* received transfers;
-* freelance income;
-* bonuses;
-* other income.
+- salary;
+- payments;
+- received transfers;
+- freelance income;
+- bonuses;
+- other income.
 
 Example:
 
@@ -110,19 +111,19 @@ Date:
 
 ---
 
-## 💸 Expenses
+# 💸 Expenses
 
 Users will be able to register expenses such as:
 
-* food;
-* transportation;
-* housing;
-* entertainment;
-* healthcare;
-* shopping;
-* subscriptions;
-* education;
-* other expenses.
+- food;
+- transportation;
+- housing;
+- entertainment;
+- healthcare;
+- shopping;
+- subscriptions;
+- education;
+- other expenses.
 
 Example:
 
@@ -161,25 +162,24 @@ Shopping
 Other
 ```
 
-Categories should eventually be customizable by the user.
+The first implementation should remain intentionally simple. Advanced category hierarchies, icons, colors, and other customization should only be added when there is a real product need.
 
 ---
 
 # 🔁 Recurring Transactions
 
-Users will be able to register recurring income and expenses.
+Users will eventually be able to register recurring income and expenses.
 
 Examples:
 
 ```text
 Salary
-
 Rent
 Internet
 Electricity
 Gym
-Streaming services
-Mobile plan
+Streaming Services
+Mobile Plan
 Loans
 ```
 
@@ -204,21 +204,19 @@ Due day:
 
 # 📊 Dashboard
 
-The dashboard will provide a quick overview of the user's financial situation.
+The dashboard should provide a fast overview of the user's financial situation.
 
-Planned indicators:
+Planned indicators include:
 
-* current balance;
-* projected balance;
-* monthly income;
-* monthly expenses;
-* budget usage;
-* expenses by category;
-* upcoming expenses;
-* recent transactions;
-* financial goal progress.
-
-The dashboard should answer the most important financial questions without requiring the user to navigate through multiple screens.
+- current balance;
+- projected balance;
+- monthly income;
+- monthly expenses;
+- budget usage;
+- expenses by category;
+- upcoming expenses;
+- recent transactions;
+- financial goal progress.
 
 Example:
 
@@ -263,21 +261,6 @@ Usage
 
 Future versions may also support budgets per category.
 
-Example:
-
-```text
-Food
-
-Budget:
-R$ 800.00
-
-Used:
-R$ 520.00
-
-Remaining:
-R$ 280.00
-```
-
 ---
 
 # 🎯 Financial Goals
@@ -299,37 +282,33 @@ Progress:
 35%
 ```
 
-Possible goals:
-
-```text
-Emergency Fund
-
-Travel
-
-New Computer
-
-Car
-
-House
-
-Debt Payment
-```
+Possible goals include emergency funds, travel, debt payments, vehicles, property, or personal purchases.
 
 ---
 
 # 🤖 Financial Automation
 
-Automation remains an important future objective for MilleStone.
+Mobile automation is one of the long-term differentiators planned for MilleStone.
 
-However, the initial web application will not depend on Android notification access.
+A future Android version may optionally detect supported banking notifications and suggest a transaction to the user.
 
-Possible future automation strategies include:
+Possible flow:
 
 ```text
-Manual Transaction
+Bank Notification
         ↓
-MilleStone
+Android Notification Access
+        ↓
+Transaction Parser
+        ↓
+Transaction Suggestion
+        ↓
+User Review / Confirmation
+        ↓
+MilleStone API
 ```
+
+Other possible automation strategies include:
 
 ```text
 Bank Statement Import
@@ -347,88 +326,72 @@ Integration Adapter
 Transaction
 ```
 
-```text
-Future Mobile Application
-        ↓
-Bank Notification
-        ↓
-Transaction Parser
-        ↓
-MilleStone API
-```
-
-Automation should be implemented only when the core financial workflow is stable.
+Automation must remain optional and should only be introduced after the core manual financial workflow is stable.
 
 ---
 
-# 🔐 Privacy and Security
+# 📱 Why Native Android
 
-Financial information is sensitive and should be handled carefully.
+MilleStone is designed around frequent, short interactions throughout the day.
 
-MilleStone should follow these principles:
+A native Android application enables a better path for features such as:
 
-* financial data should never be exposed unnecessarily;
-* database access must remain exclusively behind the backend;
-* credentials and secrets must never be stored in the frontend;
-* the frontend must communicate with the backend through defined APIs;
-* sensitive configuration must use environment variables;
-* logs must avoid exposing sensitive financial information;
-* external integrations should be explicitly enabled;
-* authentication must be implemented before exposing personal financial data publicly.
+- quick transaction registration;
+- local notifications and reminders;
+- biometric authentication;
+- Android notification access;
+- offline support and synchronization;
+- background work with WorkManager;
+- future widgets and shortcuts;
+- camera access for receipts or documents;
+- deeper integration with the Android platform.
 
-During the initial development phase, the application may run as a local development environment without external access.
+The Android client will be built with **Kotlin and Jetpack Compose**.
 
 ---
 
 # 🛠️ Tech Stack
 
-## Backend
+## Android
 
 ```text
-Java
-Spring Boot
-Spring Web
-Spring Data JPA
-Bean Validation
-PostgreSQL
-Maven
+Kotlin
+Jetpack Compose
+Material 3
+AndroidX
+Navigation Compose
+Coroutines
 ```
 
-Additional Spring modules should only be introduced when required.
+Additional Android libraries should only be introduced when they solve an actual product requirement.
 
 Possible future additions:
 
 ```text
-Spring Security
-Flyway
-Testcontainers
-OpenAPI
-Docker
+Retrofit / OkHttp
+Room
+WorkManager
+Hilt
+DataStore
+Biometric
 ```
+
+Architectural choices should remain proportional to the size of the project.
 
 ---
 
-## Frontend
+## Backend
 
 ```text
-React
-TypeScript
-Vite
-React Router
+Java 21
+Spring Boot
+Spring Web MVC
+Spring Data JPA
+Bean Validation
+Maven
 ```
 
-Additional libraries should be introduced according to actual product needs.
-
-Possible additions:
-
-```text
-TanStack Query
-React Hook Form
-Zod
-Axios
-```
-
-The project should avoid unnecessary dependencies during the initial milestones.
+The backend exposes the application capabilities through HTTP APIs and remains responsible for server-side business workflows, persistence coordination, and future integrations.
 
 ---
 
@@ -436,15 +399,12 @@ The project should avoid unnecessary dependencies during the initial milestones.
 
 ```text
 PostgreSQL
-```
-
-Database schema evolution should eventually be managed through migrations.
-
-Recommended option:
-
-```text
 Flyway
 ```
+
+Database schema evolution is managed through versioned migrations.
+
+Development infrastructure uses Docker Compose where appropriate.
 
 ---
 
@@ -459,40 +419,43 @@ Spring Boot Test
 Testcontainers
 ```
 
-### Frontend
+### Android
+
+Planned testing strategy:
 
 ```text
-Vitest
-React Testing Library
+JUnit
+AndroidX Test
+Compose UI Testing
 ```
 
-End-to-end testing may be introduced after the primary flows are stable.
+End-to-end coverage should be introduced around the most important user flows as the application becomes usable.
 
 ---
 
 # 🏗️ Architecture
 
-MilleStone should keep business rules independent from frameworks whenever practical.
-
-The backend will follow an architecture inspired by:
+The backend follows an architecture inspired by:
 
 > **Clean Architecture / Hexagonal Architecture / Ports and Adapters**
 
-Simplified view:
+The goal is to keep important business rules independent from framework and infrastructure details whenever practical.
+
+Simplified system view:
 
 ```text
 ┌──────────────────────────────────────────┐
-│                 FRONTEND                 │
+│               ANDROID APP                │
 │                                          │
-│        React + TypeScript                │
+│        Kotlin + Jetpack Compose          │
 │                                          │
-│  Pages                                   │
-│  Components                              │
-│  Hooks                                   │
+│  Screens                                 │
+│  ViewModels                              │
+│  Android Use Cases                       │
 │  API Clients                             │
 └────────────────────┬─────────────────────┘
                      │
-                     │ HTTP / REST
+                     │ HTTP / JSON
                      ▼
 ┌──────────────────────────────────────────┐
 │              API / ADAPTERS              │
@@ -524,7 +487,7 @@ Simplified view:
                      │ implements ports
                      │
 ┌────────────────────┴─────────────────────┐
-│          INFRASTRUCTURE / ADAPTERS        │
+│          INFRASTRUCTURE / ADAPTERS       │
 │                                          │
 │  PostgreSQL                              │
 │  JPA                                     │
@@ -533,23 +496,17 @@ Simplified view:
 └──────────────────────────────────────────┘
 ```
 
-An important rule:
-
-```text
-DOMAIN
-```
-
-should not depend directly on:
+An important backend rule is that the core domain should not depend directly on infrastructure concerns such as:
 
 ```text
 Spring
 JPA
 PostgreSQL
 HTTP
-React
+Android
 ```
 
-Framework-specific concerns should remain outside the core business domain whenever reasonable.
+Architecture should serve the product instead of becoming a source of unnecessary ceremony.
 
 ---
 
@@ -558,20 +515,26 @@ Framework-specific concerns should remain outside the core business domain whene
 A typical operation should follow a flow similar to:
 
 ```text
-React
-  ↓
-HTTP Request
-  ↓
+Jetpack Compose Screen
+        ↓
+ViewModel
+        ↓
+Android Use Case
+        ↓
+API Client
+        ↓
+HTTP / JSON
+        ↓
 REST Controller
-  ↓
-Application Use Case
-  ↓
+        ↓
+Backend Use Case
+        ↓
 Domain
-  ↓
+        ↓
 Repository Port
-  ↓
+        ↓
 Persistence Adapter
-  ↓
+        ↓
 PostgreSQL
 ```
 
@@ -579,45 +542,64 @@ Response:
 
 ```text
 PostgreSQL
-  ↓
+        ↓
 Persistence Adapter
-  ↓
-Application
-  ↓
+        ↓
+Backend Application
+        ↓
 REST Controller
-  ↓
+        ↓
 JSON
-  ↓
-React
+        ↓
+Android API Client
+        ↓
+ViewModel
+        ↓
+Compose UI
 ```
+
+The Android application must **never access PostgreSQL directly**.
 
 ---
 
-# 📦 Planned Repository Structure
+# 📦 Repository Structure
 
-MilleStone will initially use a single repository containing backend, frontend, and documentation.
+Current repository structure:
+
+```text
+milestone/
+│
+├── backend/
+├── frontend/          # Previous web direction; to be retired during mobile migration
+├── docs/
+├── docker-compose.yml
+├── .gitignore
+└── README.md
+```
+
+Target structure after the Android migration:
 
 ```text
 milestone/
 │
 ├── backend/
 │   ├── src/
-│   ├── pom.xml
-│   └── README.md
+│   └── pom.xml
 │
-├── frontend/
-│   ├── src/
-│   ├── package.json
-│   └── README.md
+├── android/
+│   ├── app/
+│   ├── gradle/
+│   ├── build.gradle.kts
+│   └── settings.gradle.kts
 │
 ├── docs/
-│
+├── decisions/
+├── docker-compose.yml
 ├── .gitignore
-├── README.md
-└── docker-compose.yml
+└── README.md
 ```
 
-The structure may evolve as the project grows.
+The existing frontend directory should only be removed or replaced as part of the Android migration work, keeping repository history explicit and controlled.
 
 ---
 
@@ -629,91 +611,70 @@ Base package:
 io.github.paulogandolfi.milestone
 ```
 
-Initial suggested structure:
+The backend organization follows the project architecture while preferring clarity over ceremony.
+
+Conceptually:
 
 ```text
 io.github.paulogandolfi.milestone
 │
 ├── domain
-│   ├── model
-│   ├── service
-│   └── port
-│
 ├── application
-│   ├── usecase
-│   └── service
-│
 ├── adapter
 │   ├── in
-│   │   └── web
-│   │
 │   └── out
-│       └── persistence
-│
 └── config
 ```
 
-As the application grows, organization by business feature may be preferred over a large technical-layer structure.
+As the application grows, organization by business feature may be preferred where it improves maintainability.
 
-Example:
+Possible feature areas:
 
 ```text
-milestone
-│
-├── transaction
-├── category
-├── budget
-├── goal
-└── shared
+transaction
+category
+budget
+goal
+shared
 ```
-
-Architecture should serve the project instead of becoming a source of unnecessary complexity.
 
 ---
 
-# ⚛️ Frontend Structure
+# 🤖 Android Structure
 
-Initial suggestion:
+The Android project will prefer a feature-oriented structure instead of one large package organized only by technical type.
 
-```text
-src/
-│
-├── app/
-│   ├── routes/
-│   └── providers/
-│
-├── features/
-│   ├── dashboard/
-│   ├── transactions/
-│   ├── categories/
-│   ├── budgets/
-│   └── goals/
-│
-├── components/
-│
-├── services/
-│   └── api/
-│
-├── hooks/
-│
-├── types/
-│
-└── main.tsx
-```
-
-Business-specific components should preferably remain inside their respective feature.
-
-Reusable UI components may live in:
+Initial direction:
 
 ```text
-components/
+io.github.paulogandolfi.milestone
+│
+├── app
+│   ├── navigation
+│   └── theme
+│
+├── core
+│   ├── network
+│   ├── model
+│   └── ui
+│
+├── feature
+│   ├── dashboard
+│   ├── transactions
+│   ├── categories
+│   ├── budgets
+│   └── goals
+│
+└── MainActivity.kt
 ```
+
+The exact structure should evolve with the application instead of being over-engineered up front.
 
 ---
 
 # 🧠 Initial Domain Model
 
-Main planned entities:
+Main planned concepts include:
 
 ```text
 Transaction
@@ -724,15 +685,15 @@ FinancialGoal
 User
 ```
 
-Not every planned entity needs to be implemented immediately.
+Not every planned concept needs to be implemented immediately.
 
-The model should evolve according to actual requirements.
+The model should evolve according to actual product requirements.
 
 ---
 
 # 💵 Transaction
 
-Represents a financial transaction.
+A transaction represents a financial event.
 
 Types:
 
@@ -750,13 +711,13 @@ INTEGRATION
 AUTOMATION
 ```
 
-The first version will primarily use:
+The first usable version will primarily use:
 
 ```text
 MANUAL
 ```
 
-Example representation:
+Possible representation:
 
 ```text
 Transaction
@@ -772,32 +733,116 @@ createdAt
 updatedAt
 ```
 
-Exact domain and persistence models should be defined during implementation.
+Exact domain and persistence models should be defined during implementation rather than prematurely fixed in documentation.
 
 ---
 
-# 🗺️ Roadmap
+# 🔐 Privacy and Security
 
-## M0 — Web Foundation
+Financial information is sensitive and must be handled carefully.
 
-* [ ] Create repository structure
-* [ ] Create Spring Boot backend
-* [ ] Create React + TypeScript frontend
-* [ ] Configure PostgreSQL
-* [ ] Configure database connection
-* [ ] Define backend architecture
-* [ ] Define frontend structure
-* [ ] Configure frontend routing
-* [ ] Configure backend testing
-* [ ] Configure frontend testing
-* [ ] Configure development environment
-* [ ] Create initial application layout
-* [ ] Connect frontend to backend
+MilleStone should follow these principles:
+
+- financial data should never be exposed unnecessarily;
+- database access must remain exclusively behind the backend;
+- credentials and secrets must never be stored directly in the Android client;
+- the app communicates with the backend through defined APIs;
+- sensitive configuration must use appropriate secret/configuration mechanisms;
+- logs must avoid exposing sensitive financial information;
+- external integrations should be explicitly enabled;
+- notification access must be optional and transparent;
+- authentication must be implemented before exposing personal financial data publicly;
+- biometric authentication may be used as an additional device-level protection later.
+
+During the initial development phase, the backend may run only in a local development environment.
+
+---
+
+# 🗺️ Development Roadmap
+
+The project is developed incrementally. Each phase should leave the repository in a working, understandable state.
+
+## Phase 0 — Repository & Workspace Preparation ✅
+
+Repository organization and workspace foundation.
+
+Main goals:
+
+- establish the repository root;
+- create backend/documentation areas;
+- configure `.gitignore`;
+- prepare the development roadmap;
+- remove obsolete project structure.
+
+---
+
+## Phase 1 — Spring Boot Foundation ✅
+
+Backend technical foundation.
+
+Main goals:
+
+- Java 21;
+- Spring Boot;
+- Maven Wrapper;
+- Spring Web MVC;
+- basic health endpoint;
+- initial automated tests.
+
+---
+
+## Phase 2 — Database Foundation ✅
+
+PostgreSQL and database evolution foundation.
+
+Main goals:
+
+- PostgreSQL development environment;
+- Docker Compose;
+- Flyway migrations;
+- persistence configuration;
+- integration testing foundation with Testcontainers.
+
+---
+
+## Phase 3 — Backend Architecture & Domain Foundation ✅
+
+Establish the backend architectural direction and first shared domain concepts.
+
+Main goals:
+
+- Clean / Hexagonal Architecture principles;
+- domain independence from infrastructure;
+- application ports and adapters;
+- shared value objects such as `Money`;
+- global error handling;
+- architecture that prefers clarity over ceremony.
+
+---
+
+## Phase 4 — Android Foundation 🚧
+
+Replace the previous web-client direction with the native Android foundation.
+
+Main goals:
+
+- create the Android project;
+- Kotlin;
+- Jetpack Compose;
+- Material 3;
+- application theme;
+- navigation foundation;
+- feature-oriented package structure;
+- API client foundation;
+- Android unit/UI testing foundation;
+- retire the previous React/Vite frontend cleanly.
 
 Expected result:
 
 ```text
-React
+Android App
+   ↓
+HTTP / JSON
    ↓
 Spring Boot
    ↓
@@ -806,493 +851,270 @@ PostgreSQL
 
 ---
 
-## M1 — Transactions
+## Phase 5 — First Full Integration
 
-* [ ] Create `Transaction` domain model
-* [ ] Create transaction API
-* [ ] Create transaction
-* [ ] Edit transaction
-* [ ] Delete transaction
-* [ ] List transactions
-* [ ] Persist transactions
-* [ ] Create transaction frontend
-* [ ] Integrate frontend with API
-* [ ] Add transaction validation
+Create the first vertical communication path between mobile, backend, and database.
 
-Expected first complete business flow:
+Expected flow:
+
+```text
+Jetpack Compose
+      ↓
+Android API Client
+      ↓
+Spring Boot
+      ↓
+PostgreSQL
+```
+
+The objective is to prove the complete technical path before expanding business features.
+
+---
+
+## Phase 6 — Categories
+
+Implement the minimum category workflow.
+
+Main goals:
+
+- default categories;
+- custom categories;
+- list categories;
+- create categories;
+- basic validation;
+- Android integration.
+
+Avoid premature category hierarchies, colors, icons, or advanced configuration.
+
+---
+
+## Phase 7 — Transaction Management 🎯
+
+This phase represents the **first genuinely usable MilleStone milestone**.
+
+Main goals:
+
+- create income;
+- create expenses;
+- list transactions;
+- edit transactions;
+- delete transactions;
+- select categories;
+- persist data in PostgreSQL;
+- display validation and API errors properly in Android;
+- preserve data after application restart and refresh.
+
+Expected user flow:
 
 ```text
 New Transaction
-        ↓
-React Form
-        ↓
+       ↓
+Android Form
+       ↓
 REST API
-        ↓
+       ↓
 Use Case
-        ↓
+       ↓
 Repository
-        ↓
+       ↓
 PostgreSQL
-        ↓
-Dashboard
+       ↓
+Transaction List
 ```
 
 ---
 
-## M2 — Dashboard
+## Phase 8 — Dashboard
 
-* [ ] Monthly balance
-* [ ] Monthly income
-* [ ] Monthly expenses
-* [ ] Expenses by category
-* [ ] Recent transaction history
-* [ ] Projected balance
-* [ ] Dashboard API
-* [ ] Dashboard interface
+Planned scope:
 
----
-
-## M3 — Recurring Transactions
-
-* [ ] Create recurring expense
-* [ ] Create recurring income
-* [ ] Define recurrence rules
-* [ ] Generate expected transactions
-* [ ] Manage active recurring rules
-* [ ] Display upcoming transactions
+- monthly balance;
+- monthly income;
+- monthly expenses;
+- expenses by category;
+- recent transactions;
+- projected balance.
 
 ---
 
-## M4 — Budget
+## Phase 9 — Budgets
 
-* [ ] Monthly budget
-* [ ] Category budget
-* [ ] Budget usage percentage
-* [ ] Remaining budget
-* [ ] Budget alerts
-* [ ] Budget dashboard integration
+Planned scope:
 
----
-
-## M5 — Financial Goals
-
-* [ ] Create financial goal
-* [ ] Update goal progress
-* [ ] Complete goal
-* [ ] Goal history
-* [ ] Goal dashboard integration
+- monthly budget;
+- remaining budget;
+- budget usage;
+- category budgets when justified;
+- budget alerts.
 
 ---
 
-## M6 — Authentication
+## Phase 10 — Financial Goals
 
-Authentication becomes mandatory before the application is exposed publicly.
+Planned scope:
+
+- create financial goals;
+- update progress;
+- complete goals;
+- display progress in the dashboard.
+
+---
+
+## Phase 11 — Recurring Transactions
+
+Planned scope:
+
+- recurring expenses;
+- recurring income;
+- recurrence rules;
+- upcoming transactions;
+- projected balance integration.
+
+---
+
+## Phase 12 — Notifications & Reminders
+
+Use native Android capabilities for useful financial reminders.
 
 Possible scope:
 
-* [ ] Create user model
-* [ ] User registration
-* [ ] Login
-* [ ] Password hashing
-* [ ] Authentication
-* [ ] Authorization
-* [ ] Protect financial data by user
-* [ ] Session or token strategy
-* [ ] Security tests
-
-Technology decisions should be made when this milestone begins instead of prematurely.
+- upcoming expense reminders;
+- budget alerts;
+- goal reminders;
+- configurable notification preferences.
 
 ---
 
-## M7 — Financial Automation
+## Phase 13 — Bank Notification Detection
 
-Evaluate strategies such as:
+Evaluate optional Android notification access for financial transaction suggestions.
 
-* [ ] Transaction import
-* [ ] Bank statement parsing
-* [ ] CSV import
-* [ ] OFX import
-* [ ] Automatic categorization
-* [ ] Merchant-based rules
-* [ ] Duplicate detection
-* [ ] Confidence levels
-* [ ] Learn from user categorization decisions
+Principles:
+
+- explicit user permission;
+- no silent financial actions;
+- parse only supported notification patterns;
+- user review before persistence;
+- clear confidence/fallback behavior;
+- avoid storing unnecessary notification contents.
+
+Expected concept:
+
+```text
+Bank Notification
+       ↓
+Parser
+       ↓
+Transaction Suggestion
+       ↓
+User Confirmation
+       ↓
+Persist Transaction
+```
 
 ---
 
-## M8 — Financial Integrations
+## Phase 14 — Offline & Synchronization
 
-Only evaluate external banking integrations after the core product is stable.
+Evaluate local persistence and synchronization once the core online workflow is stable.
 
-Possible architecture:
+Possible technologies:
 
 ```text
-Financial Provider
-        ↓
-Integration Adapter
-        ↓
-Application Port
-        ↓
-Transaction Processing
-        ↓
-MilleStone
+Room
+WorkManager
+Connectivity APIs
 ```
 
-Potential integrations must be evaluated considering:
-
-* security;
-* privacy;
-* API availability;
-* cost;
-* reliability;
-* financial regulations.
+Offline behavior should be designed deliberately to avoid data duplication and conflict issues.
 
 ---
 
-## M9 — Mobile
+## Phase 15 — Authentication & Biometrics
 
-A mobile application may be evaluated after the web platform and API are stable.
+Authentication becomes mandatory before the backend is publicly exposed.
 
-Possible architecture:
+Possible scope:
 
-```text
-                    ┌── React Web
-                    │
-                    ▼
-              MilleStone API
-                    ▲
-                    │
-                    └── Mobile App
-```
+- user model;
+- registration;
+- login;
+- password hashing;
+- authorization;
+- user data isolation;
+- token/session strategy;
+- Android secure credential handling;
+- optional biometric unlock;
+- security tests.
 
-The backend should remain reusable regardless of the client application.
-
----
-
-## M10 — Distribution
-
-* [ ] Production environment
-* [ ] HTTPS
-* [ ] Production database
-* [ ] Backup strategy
-* [ ] Security review
-* [ ] Privacy policy
-* [ ] Monitoring
-* [ ] Error tracking
-* [ ] Deployment pipeline
-* [ ] Public beta
+Technology decisions should be made when this phase begins rather than prematurely.
 
 ---
 
-# 🌿 Branch Strategy
+# 🧭 Development Principles
 
-Initial suggestion:
+MilleStone follows a few important principles:
 
-```text
-main
-develop
+### Build the smallest useful feature
 
-feature/*
-fix/*
-refactor/*
-docs/*
-```
+Avoid implementing speculative functionality before it is necessary.
 
-Examples:
+### Prefer clarity over cleverness
 
-```text
-feature/backend-foundation
+Code should be easy to understand and maintain.
 
-feature/frontend-foundation
+### Keep the domain independent
 
-feature/transaction-domain
+Important business rules should not be tightly coupled to frameworks.
 
-feature/transaction-api
+### Mobile first
 
-feature/transaction-form
+The Android experience is the primary product interface.
 
-feature/dashboard
+### Backend as the source of truth
 
-feature/monthly-budget
+Server-side persistence and core business state remain centralized in the backend.
 
-fix/transaction-validation
+### Automate later
 
-refactor/transaction-repository
+Manual financial management must work extremely well before advanced automation is introduced.
 
-docs/update-readme
-```
+### Privacy by design
 
-Branches should remain short-lived whenever possible.
+Financial data and Android permissions must be treated carefully from the beginning.
 
----
+### Evolve incrementally
 
-# 📝 Commit Convention
-
-Prefer clear and objective commit messages using:
-
-```text
-feat:
-fix:
-refactor:
-test:
-docs:
-chore:
-```
-
-Examples:
-
-```text
-feat: create transaction domain model
-
-feat: add transaction rest endpoint
-
-feat: create transaction form
-
-feat: persist transactions with postgresql
-
-fix: prevent invalid transaction amount
-
-test: add transaction use case tests
-
-refactor: extract transaction repository port
-
-docs: update project roadmap
-
-chore: configure development environment
-```
+The architecture should support growth without requiring premature complexity.
 
 ---
 
 # 📚 Documentation
 
-Important documentation should be versioned together with the source code.
-
-Suggested structure:
+Development documentation lives under:
 
 ```text
 docs/
-│
-├── product/
-│   └── product-definition.md
-│
-├── architecture/
-│   ├── overview.md
-│   │
-│   └── decisions/
-│
-├── features/
-│
-├── api/
-│
-└── development/
 ```
 
-Relevant architectural decisions may be documented using ADRs.
-
-Example:
+Architecture decisions that deserve a permanent record should live under:
 
 ```text
-docs/architecture/decisions/
-
-ADR-001-web-first.md
-
-ADR-002-hexagonal-architecture.md
-
-ADR-003-postgresql.md
-
-ADR-004-rest-api.md
-
-ADR-005-authentication-strategy.md
+decisions/
 ```
 
----
-
-# ⚙️ Development Environment
-
-Initial requirements:
-
-```text
-JDK
-Maven
-
-Node.js
-npm
-
-PostgreSQL
-
-Git
-```
-
-Recommended development tools:
-
-```text
-IntelliJ IDEA
-VS Code
-
-Docker
-Docker Compose
-Postman / Bruno
-```
-
-Exact Java, Spring Boot, Node.js, React, TypeScript, and dependency versions should always follow the actual project configuration.
-
----
-
-# 🖥️ Local Development
-
-Expected development architecture:
-
-```text
-Browser
-   ↓
-React Development Server
-   ↓
-Spring Boot API
-   ↓
-PostgreSQL
-```
-
-Typical services:
-
-```text
-Frontend
-localhost:5173
-
-Backend
-localhost:8080
-
-PostgreSQL
-localhost:5432
-```
-
-Exact ports may change according to the project configuration.
-
-### Running the Backend
-
-To start the Spring Boot backend application:
-
-```bash
-cd backend
-./mvnw spring-boot:run
-```
-
-Health check verification:
-
-```bash
-curl http://localhost:8080/actuator/health
-```
-
-### Running Tests
-
-```bash
-cd backend
-./mvnw test
-```
-
-### Building the Package
-
-```bash
-cd backend
-./mvnw package
-```
-
----
-
-# 📋 Project Principles
-
-The following principles should guide the development of MilleStone.
-
-## Simplicity Before Abstraction
-
-Do not build infrastructure for problems that do not exist yet.
-
-Start with the simplest architecture capable of supporting the current requirements.
-
----
-
-## Business Before Framework
-
-Business rules belong to the application and domain, not to Spring, React, or PostgreSQL.
-
-Frameworks are implementation details.
-
----
-
-## Backend as the Source of Truth
-
-Business rules and financial data integrity should be controlled by the backend.
-
-The frontend should never become the authoritative source for important financial calculations.
-
----
-
-## Explicit APIs
-
-Communication between frontend and backend should happen through clear and predictable contracts.
-
----
-
-## Privacy by Design
-
-Financial data should be protected from the beginning.
-
-Privacy should not be treated as a feature to be added later.
-
----
-
-## Reliable Automation
-
-Automatically imported or detected transactions should never compromise the integrity of financial data.
-
-Automation must prefer confirmation over incorrect assumptions.
-
----
-
-## Incremental Evolution
-
-Every milestone should result in a functional and testable improvement to the product.
-
-Avoid building future features before the current workflow is useful.
-
----
-
-## Testability
-
-Relevant business rules should be testable independently from:
-
-```text
-React
-HTTP
-Spring MVC
-PostgreSQL
-```
-
----
-
-## Maintainability
-
-Prefer:
-
-```text
-clear code
-small responsibilities
-explicit names
-simple flows
-useful tests
-```
-
-over unnecessary abstractions and premature generalization.
+The documentation roadmap will evolve together with the new Android direction.
 
 ---
 
 # 📄 License
 
-Private project.
-
-All rights reserved.
+License has not yet been defined.
 
 ---
 
-# MilleStone
+# 👤 Author
 
-> **Understand your money. Reach your milestones.**
+**Paulo Gandolfi**
+
+MilleStone is a personal project focused on building a practical, maintainable, and useful personal finance application while continuously evolving its architecture and product capabilities.
