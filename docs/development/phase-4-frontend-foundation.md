@@ -1,5 +1,9 @@
 # Phase 4 — Frontend Foundation
 
+> **Status:** ✅ Complete
+>
+> **Next:** Phase 5 — Vertical Slice 0: Frontend ↔ Backend ↔ Database
+
 ## Objective
 
 Establish the MilleStone web frontend foundation with React, TypeScript, Vite, client-side routing, shared HTTP/error handling, and a responsive application shell without introducing business-feature logic prematurely.
