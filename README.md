@@ -52,6 +52,7 @@ MilleStone should help users quickly understand their financial situation and an
 - How much do I still have in upcoming expenses?
 - Am I staying within my budget?
 - How are my financial goals progressing?
+- How are my investments performing?
 
 The product should prioritize **clarity and usefulness over unnecessary complexity**.
 
@@ -76,6 +77,8 @@ Budget
    ↓
 Goals
 ```
+
+Investments are planned as a later product area, after the core personal-finance workflow is stable.
 
 The initial objective is not to create a complete banking platform.
 
@@ -283,6 +286,46 @@ Progress:
 ```
 
 Possible goals include emergency funds, travel, debt payments, vehicles, property, or personal purchases.
+
+---
+
+# 📈 Investments
+
+A future MilleStone version will include a dedicated **Investments** area so personal cash flow and investment positions can be viewed in the same application without coupling the investment domain to the initial MVP.
+
+Planned capabilities may include:
+
+- register and track investment positions;
+- stocks, FIIs, ETFs, and other asset classes as the product evolves;
+- quantity and average purchase price;
+- invested amount;
+- current market value;
+- unrealized gain or loss;
+- portfolio allocation;
+- dividends and other investment income;
+- historical portfolio evolution;
+- market price updates through an external market-data provider.
+
+Market data should be accessed through the backend using a provider-independent port instead of coupling the domain directly to a specific external API.
+
+Conceptual direction:
+
+```text
+Investments Use Cases
+        ↓
+MarketDataPort
+        ↓
+Provider Adapter
+        ├── Yahoo Finance-compatible source
+        ├── Brapi
+        └── Other provider
+```
+
+The initial preference is to evaluate free or open-source-compatible data sources before introducing a paid dependency. The historical open-source Brapi project and Yahoo Finance-compatible sources are references for this research.
+
+Provider-specific concerns such as authentication, rate limits, response formats, retries, and fallback strategies must remain inside infrastructure adapters.
+
+Investments should be introduced only after the core transaction, dashboard, budget, and financial-goal workflows are stable.
 
 ---
 
@@ -635,6 +678,7 @@ transaction
 category
 budget
 goal
+investment
 shared
 ```
 
@@ -663,7 +707,8 @@ io.github.paulogandolfi.milestone
 │   ├── transactions
 │   ├── categories
 │   ├── budgets
-│   └── goals
+│   ├── goals
+│   └── investments
 │
 └── MainActivity.kt
 ```
@@ -684,6 +729,8 @@ MonthlyBudget
 FinancialGoal
 User
 ```
+
+Investment-specific domain concepts should be introduced later, when the Investments feature enters active development, instead of prematurely fixing that model now.
 
 Not every planned concept needs to be implemented immediately.
 
@@ -1048,6 +1095,44 @@ Possible scope:
 - security tests.
 
 Technology decisions should be made when this phase begins rather than prematurely.
+
+---
+
+## Phase 16 — Investments & Market Data
+
+Introduce the investment portfolio only after the core financial-management product is stable.
+
+Possible scope:
+
+- investment accounts and positions;
+- asset registration;
+- purchase and sale operations;
+- quantity and average purchase price;
+- portfolio allocation;
+- current market value;
+- unrealized performance;
+- dividends and investment income;
+- historical portfolio evolution;
+- market-price synchronization;
+- provider-independent `MarketDataPort`;
+- one or more infrastructure adapters for market-data providers;
+- caching and rate-limit handling where necessary.
+
+The first provider should favor a free or open-source-compatible source when technically and legally appropriate. Paid providers can be added later without changing the investment domain.
+
+Expected concept:
+
+```text
+Android Investments UI
+        ↓
+Investments Use Cases
+        ↓
+MarketDataPort
+        ↓
+Market Data Adapter
+        ↓
+External Provider
+```
 
 ---
 
