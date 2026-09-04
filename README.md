@@ -325,6 +325,44 @@ The initial preference is to evaluate free or open-source-compatible data source
 
 Provider-specific concerns such as authentication, rate limits, response formats, retries, and fallback strategies must remain inside infrastructure adapters.
 
+## 📰 Market News & Intelligence
+
+A future extension of the Investments area may aggregate **financial and market-moving news** so users can understand relevant events around the assets they own or follow without leaving MilleStone.
+
+Possible capabilities include:
+
+- news related to assets in the user's portfolio or watchlist;
+- Brazilian stock-market and macroeconomic news;
+- association between news, companies, tickers, and market sectors;
+- official company disclosures and relevant documents from CVM data sources;
+- source, publication date, and original article link;
+- duplicate-news detection and normalization across providers;
+- optional positive, neutral, or negative sentiment classification;
+- sentiment confidence and relevance indicators when technically appropriate;
+- portfolio-focused news feeds instead of a generic financial-news timeline.
+
+News ingestion should follow the same provider-independent approach used for market prices.
+
+Conceptual direction:
+
+```text
+Investment News Use Cases
+        ↓
+InvestmentNewsPort
+        ↓
+Provider Adapters
+        ├── Google News RSS
+        ├── CVM / official open-data sources
+        ├── Marketaux / Alpha Vantage
+        └── Other providers
+```
+
+The preferred initial path is to evaluate **free sources such as Google News RSS and official CVM data**, adding free-tier or paid providers only when they provide meaningful additional value such as ticker mapping, richer metadata, or sentiment information.
+
+Sentiment analysis may eventually be performed inside MilleStone using a finance-oriented model such as FinBERT or an equivalent solution, keeping this capability independent from a specific news provider when practical.
+
+Market news and sentiment information must remain **informational context rather than investment advice**. The purpose is to help users understand what may be affecting their portfolio, not to automatically recommend buying or selling assets.
+
 Investments should be introduced only after the core transaction, dashboard, budget, and financial-goal workflows are stable.
 
 ---
@@ -1161,9 +1199,16 @@ Possible scope:
 - market-price synchronization;
 - provider-independent `MarketDataPort`;
 - one or more infrastructure adapters for market-data providers;
-- caching and rate-limit handling where necessary.
+- caching and rate-limit handling where necessary;
+- market and company news aggregation;
+- portfolio/watchlist-focused news feeds;
+- ticker and sector association for relevant news;
+- official CVM disclosures and open-data integration;
+- provider-independent `InvestmentNewsPort`;
+- news deduplication and normalization;
+- optional financial-news sentiment analysis.
 
-The first provider should favor a free or open-source-compatible source when technically and legally appropriate. Paid providers can be added later without changing the investment domain.
+The first market-data and news providers should favor free or open-source-compatible sources when technically and legally appropriate. Paid providers can be added later without changing the investment domain.
 
 Expected concept:
 
@@ -1171,12 +1216,8 @@ Expected concept:
 Android Investments UI
         ↓
 Investments Use Cases
-        ↓
-MarketDataPort
-        ↓
-Market Data Adapter
-        ↓
-External Provider
+        ├── MarketDataPort ──→ Market Data Adapters
+        └── InvestmentNewsPort ──→ News / CVM Adapters
 ```
 
 ---
