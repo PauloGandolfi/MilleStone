@@ -78,7 +78,7 @@ Budget
 Goals
 ```
 
-Investments are planned as a later product area, after the core personal-finance workflow is stable.
+Investments and Open Finance integrations are planned as later product areas, after the core personal-finance workflow is stable.
 
 The initial objective is not to create a complete banking platform.
 
@@ -326,6 +326,48 @@ The initial preference is to evaluate free or open-source-compatible data source
 Provider-specific concerns such as authentication, rate limits, response formats, retries, and fallback strategies must remain inside infrastructure adapters.
 
 Investments should be introduced only after the core transaction, dashboard, budget, and financial-goal workflows are stable.
+
+---
+
+# 🏦 Open Finance Integration
+
+A future MilleStone version may integrate with the **Open Finance Brasil** ecosystem as an advanced feature focused on financial automation, technical study, and portfolio development.
+
+This integration is intentionally outside the MVP. The initial implementation should favor official specifications, sandbox environments, and simulated providers before any attempt to consume protected production banking data.
+
+Planned capabilities may include:
+
+- discover supported financial institutions;
+- model and track user consent;
+- study and implement OAuth 2.0 / OpenID Connect / FAPI concepts used by financial APIs;
+- import bank accounts;
+- synchronize account balances;
+- synchronize bank transactions;
+- import credit-card information and transactions where supported;
+- map imported transactions into MilleStone categories;
+- reconcile imported transactions with existing records;
+- periodically synchronize authorized financial data;
+- handle consent expiration, revocation, retries, and provider failures.
+
+Open Finance access should be isolated behind a provider-independent port so application and domain rules do not depend directly on a specific institution or external API.
+
+Conceptual direction:
+
+```text
+Open Finance Use Cases
+        ↓
+OpenFinancePort
+        ↓
+Provider Adapter
+        ├── Sandbox / Mock Provider
+        └── Open Finance-compatible Provider
+```
+
+Provider-specific concerns such as authorization flows, access tokens, consent identifiers, scopes, mTLS, certificates, retries, and external response formats must remain inside infrastructure adapters.
+
+Production integration with protected banking data depends on the technical, security, certification, and participation requirements of the Open Finance ecosystem. MilleStone should therefore treat sandbox and simulated integrations as the primary learning path unless production access becomes appropriate later.
+
+This feature is especially valuable to the project as a portfolio exercise because it introduces real-world integration concerns such as consent management, security protocols, idempotent synchronization, external API failures, and sensitive financial-data handling.
 
 ---
 
@@ -679,6 +721,7 @@ category
 budget
 goal
 investment
+openfinance
 shared
 ```
 
@@ -708,7 +751,8 @@ io.github.paulogandolfi.milestone
 │   ├── categories
 │   ├── budgets
 │   ├── goals
-│   └── investments
+│   ├── investments
+│   └── openfinance
 │
 └── MainActivity.kt
 ```
@@ -730,7 +774,7 @@ FinancialGoal
 User
 ```
 
-Investment-specific domain concepts should be introduced later, when the Investments feature enters active development, instead of prematurely fixing that model now.
+Investment and Open Finance-specific domain concepts should be introduced later, when those features enter active development, instead of prematurely fixing those models now.
 
 Not every planned concept needs to be implemented immediately.
 
@@ -798,6 +842,7 @@ MilleStone should follow these principles:
 - logs must avoid exposing sensitive financial information;
 - external integrations should be explicitly enabled;
 - notification access must be optional and transparent;
+- Open Finance access must depend on explicit, traceable, and revocable consent;
 - authentication must be implemented before exposing personal financial data publicly;
 - biometric authentication may be used as an additional device-level protection later.
 
@@ -1133,6 +1178,49 @@ Market Data Adapter
         ↓
 External Provider
 ```
+
+---
+
+## Phase 17 — Open Finance Integration
+
+Introduce Open Finance only after authentication, the core financial domain, and synchronization concepts are stable.
+
+This phase is primarily intended as an advanced integration and portfolio exercise. Initial development should use sandbox or simulated providers while following official Open Finance concepts and specifications as closely as practical.
+
+Possible scope:
+
+- financial institution discovery;
+- consent creation and lifecycle management;
+- authorization flow integration;
+- OAuth 2.0 / OpenID Connect / FAPI study and implementation;
+- bank accounts and balances;
+- bank transaction synchronization;
+- credit-card data where supported;
+- imported-transaction reconciliation;
+- automatic category suggestions for imported transactions;
+- idempotent synchronization;
+- consent expiration and revocation;
+- provider-independent `OpenFinancePort`;
+- sandbox/mock adapter;
+- production-compatible adapter only when participation and security requirements are appropriate;
+- retry, observability, and external-error handling;
+- security and integration tests.
+
+Expected concept:
+
+```text
+Android Bank Connections UI
+        ↓
+Open Finance Use Cases
+        ↓
+OpenFinancePort
+        ↓
+Open Finance Adapter
+        ↓
+Sandbox / Compatible Provider
+```
+
+Protected production banking-data access must not be assumed to be a public API capability. Any future production integration must respect the certification, participation, consent, certificate, and security requirements applicable to the Open Finance ecosystem.
 
 ---
 
